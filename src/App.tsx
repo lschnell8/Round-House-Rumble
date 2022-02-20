@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './App.scss';
 import  { getData }  from './APICall';
 import Header from './Components/Header/Header'
 import RandomJokeContainer from './Components/RandomJokeContainer/RandomJokeContainer';
@@ -16,10 +16,10 @@ class App extends Component {
 
   render () {
     return (
-      <div className="App">
+      <main className="app">
         <Header />
         <RandomJokeContainer />
-      </div>
+      </main>
     )
   }
 }

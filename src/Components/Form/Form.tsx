@@ -1,8 +1,10 @@
 class Form {
-  state = 
+  state = {
+    input: ''
+  }
   render() {
     <form>
-    <lable>Chuck One Liner:</lable>
+    <label>Chuck One Liner:</label>
     <textarea></textarea>
     <button>Make Ya Own</button>
   </form>
