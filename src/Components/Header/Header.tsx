@@ -1,12 +1,12 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 
 const Header = () => {
   return (
     <header className='header'>
       <h1>Round House Rumble</h1>
-      <button className='to-form' onclick={reRoute}>Make Ya Own</button>
-      <button className='to-favs' onclick={reRoute}>Favorites</button>
+      <button className='to-form'>Make Ya Own</button>
+      <button className='to-favs'>Favorites</button>
     </header>
   )
 };
