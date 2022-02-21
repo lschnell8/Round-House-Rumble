@@ -1,14 +1,19 @@
 import React from 'react';
-import './Form.css';
+import '/Form.scss';
 
-const Form = () => {
-  return (
+
+class Form {
+  state = {
+    input: ''
+  }
+  render() {
     <form>
-      <lable>Chuck One Liner:</lable>
-      <textarea></textarea>
-      <button>Make Ya Own</button>
-    </form>
-  )
-};
+    <label>Chuck One Liner:</label>
+    <textarea></textarea>
+    <button>Make Ya Own</button>
+  </form>
+  }
+}
 
-export default Form;
+
+export default Form

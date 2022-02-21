@@ -1,5 +1,4 @@
 import React from 'react';
-import './FavJokesCard.css';
 
 const FavJokesCard = ({ icon_url, value }) => {
   return (

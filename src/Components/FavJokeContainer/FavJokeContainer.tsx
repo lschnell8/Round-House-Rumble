@@ -1,18 +1,19 @@
-import React from 'react';
-import './FavJokesContainer.css';
+import FavJokecard from "./FavJokeCard/FavJokeCard";
+import './FavJokeContainer.scss'
 
-const FavJokesContainer = ({ favorites }) => {
-  let cards = favorites.map(fav =>
-    <FavJokeCard
-      key={fav.id}
-      icon={fav.icon_url}
-      joke={fav.value}
-    />)
-  return (
-    <>
-      { cards }
-    </>
-  )
-};
+const FavJokeContainer = () => {
+  // const cards = props.favorites.map(fav =>
+  //   <FavJokecard
+  //     key={fav.id}
+  //     value={fav.value}
+  //     icon={fav.icon_url}
+  //   />)
+  
+  // return (
+  //   <>
+  //   {cards}
+  //   </>
+  // )
+} 
 
-export default FavJokesContainer;
+export default FavJokeContainer;
