@@ -1,11 +1,19 @@
 import './RandomJokeContainer.scss'
-const RandomJokeContainer = () => {
+import React from 'react'
+interface Prop {
+  chuckJoke: string,
+  icon: string,
+  id: string,
+}
+
+const RandomJokeContainer: React.FC<Prop>  = (prop) => {
+  console.log('passed prop', prop)
   return (
     <section className="main-container">
       <article className='favorite'>
-        <p>{props.value}</p>
+        <p>{prop.chuckJoke}</p>
       </article>
-        <img src='' alt=''></img>
+        <img src={prop.icon} alt=''></img>
         <button className='star'>⭐️</button>
         <button className='star'>✩</button>
         <button className="another-joke">Hit me with another!</button>
