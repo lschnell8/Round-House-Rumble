@@ -7,7 +7,7 @@ import React from 'react'
 //   //     value={fav.value}
 //   //     icon={fav.icon_url}
 //   //   />)
-  
+
 //   return (
 //     <div>
 //     {/* {cards} */}
@@ -26,13 +26,14 @@ const FavJokeContainer = () => {
   //     value={fav.value}
   //     icon={fav.icon_url}
   //   />)
-  
-  // return (
-  //   <>
-  //   {cards}
-  //   </>
-  // )
-} 
+
+  return (
+    <>
+      <h2>Hello Fav Joke Container</h2>
+      {/* {cards} */}
+    </>
+  )
+}
 
 
 export default FavJokeContainer;
