@@ -18,7 +18,7 @@ class App extends Component{
     isFavorited: false
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     getData()
       .then(data => {
         this.setState({ iconURL: data.icon_url, id: data.id, value: data.value })
@@ -26,7 +26,7 @@ class App extends Component{
       })
   }
 
-  // handleFavoriting() {
+  // handleFavoriting = () => {
   //   if (!this.state.isFavorited) {
   //     const addedFavorite = this.state.favorites.push(currentJoke)
   //     this.setState({...this.state, favorites: addedFavorite, isFavorited: true})
@@ -39,10 +39,10 @@ class App extends Component{
       <main className="app">
         <Header />
         <Switch>
-          <Route exact path='/'>
+          {/* <Route exact path='/'>
             <Redirect to='/:id'/>
-          </Route>
-          <Route exact path='/:id'>
+          </Route> */}
+          <Route exact path='/'>
             <RandomJokeContainer chuckJoke={this.state.value} icon={this.state.iconURL} id={this.state.id}/>
           </Route>
           <Route exact path='/form'>
@@ -59,42 +59,6 @@ class App extends Component{
     )
   }
 }
-  
-// interface State {
-//   joke: RandomJoke[];
-// }
-  
-// class App extends Component { 
-//   state: State = {
-//     joke: []
-//   };
-  
-//   componentDidMount = () => {
-//     getData()
-//     // .then((response) => response.json())
-//     .then((data) => {
-//       this.setState({ joke: data })
-//       console.log('this.state >>>>', this.state)
-//     })
-//     // .catch(error => console.log(error))
-//   }
-  
-//   render() {
-    
-//     const jokeValue = this.state.joke[0].value;
-//     // const jokeIcon = this.state.joke[0].icon_url;
 
-//     // console.log(jokeIcon)
-//     console.log('jokeValue >>>>', jokeValue)
-//     // console.log('jokeIcon >>>>' jokeIcon)
-
-//     return (
-//       <main className="App">
-//         {jokeValue}
-//         {/* <img src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt='joke icon'/> */}
-//       </main>
-//     ) 
-//   }
-// };
 
 export default App;
