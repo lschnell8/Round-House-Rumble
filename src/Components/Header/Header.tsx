@@ -2,17 +2,15 @@ import React from 'react';
 import './Header.scss';
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
 
-
-
 const Header: React.FC = () => {
   return (
     <header className='header'>
       <h1>Round House Rumble</h1>
       <Switch>
         {/* <Route exact path='/'>
-          <Redirect to='/:id'/>
+          <Redirect to='/:id' />
         </Route> */}
-        <Route path='/'>
+        <Route exact path='/'>
           <Link to='/form'>
             <button className='to-form'>Make Ya Own</button>
           </Link>
@@ -20,7 +18,7 @@ const Header: React.FC = () => {
             <button className='to-favs'>Favorites</button>
           </Link>
         </Route>
-        <Route path='/form'>
+        <Route exact path='/form'>
           <Link to='/'>
             <button className='to-home'>Home</button>
           </Link>
@@ -32,8 +30,8 @@ const Header: React.FC = () => {
           <Link to='/'>
             <button className='to-home'>Home</button>
           </Link>
-          <Link to='/favorites'>
-            <button className='to-favs'>Favorites</button>
+          <Link to='/form'>
+            <button className='to-form'>Make Ya Own</button>
           </Link>
         </Route>
         <Route path='/user-joke/:id'>
