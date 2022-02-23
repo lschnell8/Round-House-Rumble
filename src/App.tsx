@@ -5,7 +5,7 @@ import Header from './Components/Header/Header'
 import RandomJokeContainer from './Components/RandomJokeContainer/RandomJokeContainer';
 import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
 import Form from './Components/Form/Form';
-// import UserJokeContainer from './Components/UserJokeContainer/UserJokeContainer';
+import UserJokeContainer from './Components/UserJokeContainer/UserJokeContainer';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
@@ -21,8 +21,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('my state value', this.state.value)
-    console.log(this.props)
     return (
       <main className="app">
         <Header />
@@ -40,7 +38,7 @@ class App extends Component {
             <FavJokeContainer />
           </Route>
           <Route exact path='/user-joke/:id'>
-            {/* <UserJokeContainer /> */}
+            <UserJokeContainer value={this.state.value} />
           </Route>
         </Switch>
       </main>
