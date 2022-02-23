@@ -5,7 +5,8 @@ import Header from './Components/Header/Header'
 import RandomJokeContainer from './Components/RandomJokeContainer/RandomJokeContainer';
 import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
 import Form from './Components/Form/Form';
-import { Route } from 'react-router-dom';
+// import UserJokeContainer from './Components/UserJokeContainer/UserJokeContainer';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -25,9 +26,23 @@ class App extends Component {
     return (
       <main className="app">
         <Header />
-        <Route exact path="/" render={() => <RandomJokeContainer chuckJoke={this.state.value} icon={this.state.iconURL} id={this.state.id} />} />
-        <Route exact path="/Form" render={() => <Form />} />
-        <Route exact path="/Favorites" render={() => <FavJokeContainer />} />
+        <Switch>
+          {/* <Route exact path='/'>
+            <Redirect to='/:id' />
+          </Route> */}
+          <Route exact path='/'>
+            <RandomJokeContainer chuckJoke={this.state.value} icon={this.state.iconURL} id={this.state.id} />
+          </Route>
+          <Route exact path='/form'>
+            <Form />
+          </Route>
+          <Route exact path='/favorites'>
+            <FavJokeContainer />
+          </Route>
+          <Route exact path='/user-joke/:id'>
+            {/* <UserJokeContainer /> */}
+          </Route>
+        </Switch>
       </main>
     )
   }
