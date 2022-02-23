@@ -1,4 +1,5 @@
-class Form {
+import React, { Component} from "react"
+class Form extends Component {
 //   state = {
 //     input: ''
 //   }
@@ -9,6 +10,12 @@ class Form {
 //     <button>Make Ya Own</button>
 //   </form>
 //   }
+
+  render() {
+    return (
+      <h1>howdy howdy howdy</h1>
+    )
+  }
 }
 
 

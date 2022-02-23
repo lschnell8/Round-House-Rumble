@@ -13,14 +13,18 @@ describe('Integreation tests' ,() => {
 
   // We need to come up with sad paths in order to have a fully functional tests
   it('Should contain a random joke', () => {
-    cy.get('p')
+    cy.contains('p')
+  })
+
+  it('Should test to see if there is no joke', () => {
+    cy.contains('p', 'Nothing found')
   })
 
   it('Should be able to grab the Chuck Norris image', () => {
     cy.get('img')
   })
 
-  // Everything unerneath vthis comment needs functionality to work in order to be fully tested
+  // Everything unerneath this comment needs functionality to work in order to be fully tested
   it('Should get another joke', () => {
     cy.get('.another-joke')
     .click()
