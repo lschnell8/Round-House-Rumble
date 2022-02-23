@@ -1,5 +1,7 @@
+
 import './RandomJokeContainer.scss'
 import React from 'react'
+
 interface Prop {
   chuckJoke: string,
   icon: string,

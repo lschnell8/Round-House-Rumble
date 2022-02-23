@@ -20,11 +20,19 @@ import React from 'react'
 // } 
 
 const FavJokeContainer = () => {
-
-  return(
-    <h1>Hello World</h1>
-  )
-}
+  // const cards = props.favorites.map(fav =>
+  //   <FavJokecard
+  //     key={fav.id}
+  //     value={fav.value}
+  //     icon={fav.icon_url}
+  //   />)
+  
+  // return (
+  //   <>
+  //   {cards}
+  //   </>
+  // )
+} 
 
 
 export default FavJokeContainer;

@@ -7,21 +7,17 @@ import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
 import Form from './Components/Form/Form';
 import { Route } from 'react-router-dom';
 
-
-class App extends Component {
+class App extends Component{
   state = {
     iconURL: '',
     id: '',
-    value: '',
-    path: '',
+    value: ''
   }
 
   componentDidMount() {
     getData()
     .then(data => this.setState({...this.state, iconURL: data.icon_url, id: data.id, value: data.value}))
   }
-
- 
 
   render () {
     console.log('my state value', this.state.value)
