@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import './App.scss';
-import  { getData }  from './apiCalls';
+import { getData } from './apiCalls';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './Components/Header/Header'
 import RandomJokeContainer from './Components/RandomJokeContainer/RandomJokeContainer';
+// import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
+// import Form from './Components/Form/Form';
 
 
 
@@ -10,7 +13,9 @@ class App extends Component{
   state = {
     iconURL: '',
     id: '',
-    value: ''
+    value: '',
+    favorites: [],
+    isFavorited: false
   }
 
   componentDidMount() {
@@ -21,11 +26,35 @@ class App extends Component{
       })
   }
 
+  // handleFavoriting() {
+  //   if (!this.state.isFavorited) {
+  //     const addedFavorite = this.state.favorites.push(currentJoke)
+  //     this.setState({...this.state, favorites: addedFavorite, isFavorited: true})
+  //   }
+
+  // }
+
   render () {
     return (
       <main className="app">
         <Header />
-        <RandomJokeContainer chuckJoke={this.state.value} icon={this.state.iconURL} id={this.state.id}/>
+        <Switch>
+          <Route exact path='/'>
+            <Redirect to='/:id'/>
+          </Route>
+          <Route exact path='/:id'>
+            <RandomJokeContainer chuckJoke={this.state.value} icon={this.state.iconURL} id={this.state.id}/>
+          </Route>
+          <Route exact path='/form'>
+            {/* <Form /> */}
+          </Route>
+          <Route exact path='/favorites'>
+            {/* <FavJokeContainer /> */}
+          </Route>
+          <Route exact path='/user-joke/:id'>
+            {/* <UserJokeContainer /> */}
+          </Route>
+        </Switch>
       </main>
     )
   }
