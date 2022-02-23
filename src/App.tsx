@@ -12,12 +12,23 @@ class App extends Component {
   state = {
     iconURL: '',
     id: '',
-    value: ''
+    value: '',
+    userJoke: {
+      textInput: '',
+      id: '',
+    }
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     getData()
       .then(data => this.setState({ ...this.state, iconURL: data.icon_url, id: data.id, value: data.value }))
+      .then(() => console.log('compDidMnt', this.state))
+  }
+
+  storeUserJoke = (userJoke: {}): void => {
+    console.log('state', this.state)
+    console.log('userJOke', userJoke)
+    this.setState({ ...this.state, userJoke: userJoke })
   }
 
   render() {
@@ -32,13 +43,13 @@ class App extends Component {
             <RandomJokeContainer chuckJoke={this.state.value} icon={this.state.iconURL} id={this.state.id} />
           </Route>
           <Route exact path='/form'>
-            <Form />
+            <Form storeUserJoke={this.storeUserJoke} />
           </Route>
           <Route exact path='/favorites'>
             <FavJokeContainer />
           </Route>
           <Route exact path='/user-joke/:id'>
-            <UserJokeContainer value={this.state.value} />
+            <UserJokeContainer textInput={this.state.userJoke.textInput} />
           </Route>
         </Switch>
       </main>

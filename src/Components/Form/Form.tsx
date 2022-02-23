@@ -1,13 +1,25 @@
 import React, { Component } from "react"
 import { Link, Route } from 'react-router-dom'
 import UserJokeContainer from '../UserJokeContainer/UserJokeContainer'
-class Form extends Component {
+
+interface Props {
+  storeUserJoke(userJoke: {}): void
+}
+
+class Form extends Component<Props> {
   state = {
-    input: ''
+    textInput: '',
+    id: Date.now().toString(),
   }
 
-  handleChange(event: React.ChangeEvent<HTMLTextAreaElement>): void {
-    this.setState({ input: event.target.value })
+
+
+  handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    this.setState({ textInput: event.target.value })
+  }
+
+  submitUserJoke = (state: { textInput: string; id: string }): void => {
+    this.props.storeUserJoke(this.state)
   }
 
   render() {
@@ -15,9 +27,9 @@ class Form extends Component {
       <>
         <form>
           <label>Chuck One Liner:</label>
-          <textarea value={this.state.input} onChange={(event) => this.handleChange(event)}></textarea>
+          <textarea value={this.state.textInput} onChange={(event) => this.handleChange(event)}></textarea>
           <Link to='/user-joke/:id'>
-            <button>Make Ya Own</button>
+            <button onClick={() => this.submitUserJoke(this.state)}>Make Ya Own</button>
           </Link>
         </form>
         {/* <Route exact path='/user-joke/:id'>
