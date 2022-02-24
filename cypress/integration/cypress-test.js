@@ -62,8 +62,12 @@ describe('Integreation tests' ,() => {
 
     cy.get('.make-ya-own').click()
       .url().should('include','/user-joke/:id')
+
+    cy.get('p')
+    cy.get('img')
     
   })
+
 
   // it('Should view the favorite jokes', () => {
   //   cy.get('.favorites')
