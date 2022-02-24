@@ -8,18 +8,17 @@ interface Prop {
   id: string,
 }
 
-const RandomJokeContainer: React.FC<Prop>  = (prop) => {
-  console.log('passed prop', prop)
+const RandomJokeContainer: React.FC<Prop> = (prop) => {
   return (
     <section className="main-container">
       <article className='favorite'>
-       {prop.chuckJoke && <p>{prop.chuckJoke}</p> }
-       {!prop.chuckJoke && <p>Nothing found</p>}
+        {prop.chuckJoke && <p>{prop.chuckJoke}</p>}
+        {!prop.chuckJoke && <p>Nothing found</p>}
       </article>
-        <img src={prop.icon} alt=''></img>
-        <button className='star'>⭐️</button>
-        <button className='star'>✩</button>
-        <button className="another-joke">Hit me with another!</button>
+      <img src={prop.icon} alt=''></img>
+      <button className='star'>⭐️</button>
+      <button className='star'>✩</button>
+      <button className="another-joke">Hit me with another!</button>
     </section>
   )
 }
