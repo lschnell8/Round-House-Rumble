@@ -1,3 +1,5 @@
+const { get } = require("http")
+
 beforeEach(() => {
   cy.visit('http://localhost:3000')
 })
@@ -40,13 +42,32 @@ describe('Integreation tests' ,() => {
   })
 
   it('Should make your own joke', () => {
-    cy.get('.form-page')
+    cy.get('.to-form')
     .click()
+    .get('label')
+
+    cy.get('textarea')
+    .type('This is my first joke!')
+    .should('have.value', 'This is my first joke!')
   })
 
-  it('Should view the favorite jokes', () => {
-    cy.get('.favorites')
-    .click()
+  it('Should take yout to a new page when the joke is made', () => {
+    cy.get('.to-form')
+      .click()
+      .get('label')
+
+    cy.get('textarea')
+      .type('This is my first joke!')
+      .should('have.value', 'This is my first joke!')
+
+    cy.get('.make-ya-own').click()
+      .url().should('include','/user-joke/:id')
+    
   })
+
+  // it('Should view the favorite jokes', () => {
+  //   cy.get('.favorites')
+  //   .click()
+  // })
 
 })

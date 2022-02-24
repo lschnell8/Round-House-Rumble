@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import UserJokeContainer from '../UserJokeContainer/UserJokeContainer'
 
 interface Props {
@@ -29,7 +29,7 @@ class Form extends Component<Props> {
           <label>Chuck One Liner:</label>
           <textarea value={this.state.textInput} onChange={(event) => this.handleChange(event)}></textarea>
           <Link to='/user-joke/:id'>
-            <button onClick={() => this.submitUserJoke(this.state)}>Make Ya Own</button>
+            <button className='make-ya-own' onClick={() => this.submitUserJoke(this.state)}>Make Ya Own</button>
           </Link>
         </form>
         {/* <Route exact path='/user-joke/:id'>

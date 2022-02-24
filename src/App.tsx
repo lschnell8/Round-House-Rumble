@@ -6,7 +6,7 @@ import RandomJokeContainer from './Components/RandomJokeContainer/RandomJokeCont
 import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
 import Form from './Components/Form/Form';
 import UserJokeContainer from './Components/UserJokeContainer/UserJokeContainer';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   state = {
