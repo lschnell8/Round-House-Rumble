@@ -26,11 +26,9 @@ describe('Integreation tests' ,() => {
     cy.get('img')
   })
 
-  // Everything unerneath this comment needs functionality to work in order to be fully tested
   it('Should get another joke', () => {
     cy.get('.another-joke')
     .click()
-    // 
   })
 
   it('Should be able to favorite a joke', () => {
