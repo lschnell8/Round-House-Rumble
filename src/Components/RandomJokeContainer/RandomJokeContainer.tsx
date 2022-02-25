@@ -1,14 +1,10 @@
-import './RandomJokeContainer.scss'
-import React from 'react'
+import './RandomJokeContainer.scss';
+import React from 'react';
+import { Joke } from '../FavJokeContainer/FavJokeCard/FavJokeCard'
 
 interface Props {
-  joke: {
-    icon: string,
-    id: string,
-    chuckJoke: string,
-    isFavorited: boolean,
-  }, 
-  handleFavoriting(joke: {}): void
+  joke: Joke, 
+  handleFavoriting(joke: Joke): void
 }
 
 const RandomJokeContainer: React.FC<Props> = (props) => {

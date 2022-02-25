@@ -1,13 +1,20 @@
-import FavJokecard, { Joke, UserJoke } from "./FavJokeCard/FavJokeCard";
+import FavJokecard, { Joke } from "./FavJokeCard/FavJokeCard";
 import './FavJokeContainer.scss'
 
-interface Props {
-  favorites: (Joke | UserJoke)[];
+export interface Props {
+  favorites: Joke[];
 }
+
+// declare namespace JSX {
+//   interface IntrinsicElements {
+//     joke: Joke;
+  
+//   }
+// }
 // const FavJokeContainer = () => {
 
 // }
-const FavJokeContainer: React.FC<Props> = (props) => {
+export const FavJokeContainer = (props: {favorites: Joke[]}) => {
   const cards = props.favorites.map(fav =>
     <FavJokecard
       key={fav.id}
@@ -22,5 +29,3 @@ const FavJokeContainer: React.FC<Props> = (props) => {
     </>
   )
 } 
-
-export default FavJokeContainer;
