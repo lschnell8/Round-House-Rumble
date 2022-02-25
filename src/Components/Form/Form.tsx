@@ -1,23 +1,14 @@
-import React, { useState } from "react"
-import { Link } from 'react-router-dom'
-import UserJokeContainer from '../UserJokeContainer/UserJokeContainer'
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+// import UserJokeContainer from '../UserJokeContainer/UserJokeContainer'
+import { Joke } from '../Interfaces/interfaces';
 
-interface Joke {
-  icon: string;
-  id: string;
-  chuckJoke: string;
-  isFavorited: boolean;
-}
-interface Props {
-  storeUserJoke: (joke: Joke) => void; 
-}
-
-// class Form extends Component<Props> {
+// class Form extends Component<Store> {
 //   state = {
 //     textInput: '',
 //     id: Date.now().toString(),
 //   }
-const Form: React.FC<Props> = (props) => {
+const Form = (props: { storeUserJoke: (joke: Joke) => void; }) => {
   const [joke, setJoke] = useState({ icon: '', id: '', chuckJoke: '', isFavorited: false });
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {

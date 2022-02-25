@@ -1,6 +1,6 @@
 import './UserJokeContainer.scss';
 import React from 'react';
-import { Joke } from '../FavJokeContainer/FavJokeCard/FavJokeCard'
+import { Joke } from '../Interfaces/interfaces'
 
 const UserJokeContainer = ({joke}: {joke: Joke}) => {
   return (

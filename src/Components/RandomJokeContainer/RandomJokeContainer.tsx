@@ -1,13 +1,13 @@
 import './RandomJokeContainer.scss';
 import React from 'react';
-import { Joke } from '../FavJokeContainer/FavJokeCard/FavJokeCard'
+import { RandomJoke } from '../Interfaces/interfaces'
 
-interface Props {
-  joke: Joke, 
-  handleFavoriting(joke: Joke): void
-}
+// interface RandomJoke {
+//   joke: Joke, 
+//   handleFavoriting(joke: Joke): void
+// }
 
-const RandomJokeContainer: React.FC<Props> = (props) => {
+const RandomJokeContainer = (props: RandomJoke) => {
   return (
     <section className="main-container">
       <article className='comment'>

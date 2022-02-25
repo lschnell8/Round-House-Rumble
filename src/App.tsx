@@ -1,46 +1,30 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
 import { getData } from "./apiCalls";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import RandomJokeContainer from "./Components/RandomJokeContainer/RandomJokeContainer";
-import {
-  FavJokeContainer,
-  Props,
-} from "./Components/FavJokeContainer/FavJokeContainer";
+import FavJokeContainer from "./Components/FavJokeContainer/FavJokeContainer";
 import Form from "./Components/Form/Form";
 import UserJokeContainer from "./Components/UserJokeContainer/UserJokeContainer";
-import { Joke } from "./Components/FavJokeContainer/FavJokeCard/FavJokeCard";
+import { Joke } from "./Components/Interfaces/interfaces";
 
-// class App extends Component{
 const App = () => {
-  // state = {
-  //   joke: {
-  //     icon: '',
-  //     id: '',
-  //     chuckJoke: '',
-  //     isFavorited: false
-  //   },
-  //   userJoke: {
-  //     textInput: '',
-  //     id: '',
-  //     isFavorited: false
-  //   },
-  //   favorites: [],
-  //   // isFavorited: false,
-  // }
+
   const [joke, setJoke] = useState({
     icon: "",
     id: "",
     chuckJoke: "",
     isFavorited: false,
   });
-  const [favorites, setFavorites] = useState<Joke[]>([{
+
+  const [favorites, setFavorites] = useState([{
     icon: "",
     id: "",
     chuckJoke: "",
     isFavorited: false,
   }]);
+
   const [userJoke, setUserJoke] = useState<Joke>({
     icon: "",
     id: "",
@@ -48,7 +32,6 @@ const App = () => {
     isFavorited: false,
   });
 
-  // componentDidMount = (): void => {
   useEffect(() => {
     getData().then((data) =>
       setJoke({
@@ -59,23 +42,19 @@ const App = () => {
       })
     );
   }, []);
-  // }
 
   const storeUserJoke = (joke: Joke): void => {
     console.log(joke);
     setUserJoke(joke);
   };
 
-  const handleFavoriting = (joke: Joke) => {
+  const handleFavoriting = (joke: {chuckJoke: string, icon: string, id: string, isFavorited: boolean}) => {
     console.log(joke);
     if (!joke.isFavorited) {
       setFavorites([...favorites, joke]);
-      // const addedFavorite = this.state.favorites.push(this.state.joke)
-      // this.setState({...this.state, favorites: addedFavorite, isFavorited: true})
     }
   };
 
-  // render() {
   return (
     <main className="app">
       <Header />
@@ -93,7 +72,7 @@ const App = () => {
           <Form storeUserJoke={storeUserJoke} />
         </Route>
         <Route exact path="/favorites">
-          {/* <FavJokeContainer handleFavoriting={handleFavoriting}/> */}
+          <FavJokeContainer favorites={favorites} />
         </Route>
         <Route exact path="/user-joke/:id">
           <UserJokeContainer joke={userJoke} />
@@ -101,7 +80,6 @@ const App = () => {
       </Switch>
     </main>
   );
-  // }
 };
 
 export default App;
