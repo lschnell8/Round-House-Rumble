@@ -1,19 +1,26 @@
-import FavJokecard from "./FavJokeCard/FavJokeCard";
+import FavJokecard, { Joke, UserJoke } from "./FavJokeCard/FavJokeCard";
 import './FavJokeContainer.scss'
 
-const FavJokeContainer = () => {
-  // const cards = props.favorites.map(fav =>
-  //   <FavJokecard
-  //     key={fav.id}
-  //     value={fav.value}
-  //     icon={fav.icon_url}
-  //   />)
+interface Props {
+  favorites: (Joke | UserJoke)[];
+}
+// const FavJokeContainer = () => {
+
+// }
+const FavJokeContainer: React.FC<Props> = (props) => {
+  const cards = props.favorites.map(fav =>
+    <FavJokecard
+      key={fav.id}
+      chuckJoke={fav.chuckJoke}
+      icon={fav.icon}
+      id={fav.id}
+    />)
   
-  // return (
-  //   <>
-  //   {cards}
-  //   </>
-  // )
+  return (
+    <>
+    {cards}
+    </>
+  )
 } 
 
 export default FavJokeContainer;

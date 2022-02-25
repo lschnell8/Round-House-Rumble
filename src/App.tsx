@@ -4,45 +4,46 @@ import { getData } from './apiCalls';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './Components/Header/Header'
 import RandomJokeContainer from './Components/RandomJokeContainer/RandomJokeContainer';
-import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
+// import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
 import Form from './Components/Form/Form';
 import UserJokeContainer from './Components/UserJokeContainer/UserJokeContainer';
 
 class App extends Component{
   state = {
-    Joke: {
-      iconURL: '',
+    joke: {
+      icon: '',
       id: '',
-      value: ''
+      chuckJoke: '',
+      isFavorited: false
     },
     userJoke: {
       textInput: '',
       id: '',
+      isFavorited: false
     },
     favorites: [],
-    isFavorited: false,
+    // isFavorited: false,
   }
 
   componentDidMount = (): void => {
     getData()
-      .then(data => this.setState({ Joke: { iconURL: data.icon_url, id: data.id, value: data.value } }))
-      .then(() => console.log('compDidMnt', this.state))
+      .then(data => this.setState({ joke: { icon: data.icon_url, id: data.id, chuckJoke: data.value } }))
   } 
   
   storeUserJoke = (userJoke: {}): void => {
-    // console.log('state', this.state)
-    // console.log('userJOke', userJoke)
     this.setState({ ...this.state, userJoke: userJoke })
   }
 
-  handleFavoriting = () => {
-    if (!this.state.isFavorited) {
-      const addedFavorite = this.state.favorites.push()
-      this.setState({...this.state, favorites: addedFavorite, isFavorited: true})
+  handleFavoriting = (): void => {
+    if (!this.state.joke.isFavorited) {
+      this.setState({ favorites: [...this.state.favorites, this.state.joke] })
+      // const addedFavorite = this.state.favorites.push(this.state.joke)
+      // this.setState({...this.state, favorites: addedFavorite, isFavorited: true})
     }
   }
 
-  render () {
+  render() {
+    console.log('render', this.state)
     return (
       <main className="app">
         <Header />
@@ -51,7 +52,7 @@ class App extends Component{
             <Redirect to='/:id'/>
           </Route> */}
           <Route exact path='/'>
-            <RandomJokeContainer chuckJoke={this.state.Joke.value} icon={this.state.Joke.iconURL} id={this.state.Joke.id}/>
+            <RandomJokeContainer joke={this.state.joke} handleFavoriting={ this.handleFavoriting}/>
           </Route>
           <Route exact path='/form'>
             <Form storeUserJoke={this.storeUserJoke} />
