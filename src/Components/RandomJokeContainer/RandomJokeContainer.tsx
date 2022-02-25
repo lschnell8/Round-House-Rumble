@@ -1,11 +1,5 @@
 import './RandomJokeContainer.scss';
-import React from 'react';
 import { RandomJoke } from '../Interfaces/interfaces'
-
-// interface RandomJoke {
-//   joke: Joke, 
-//   handleFavoriting(joke: Joke): void
-// }
 
 const RandomJokeContainer = (props: RandomJoke) => {
   return (
