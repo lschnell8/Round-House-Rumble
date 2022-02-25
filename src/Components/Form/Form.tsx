@@ -19,22 +19,12 @@ const Form = (props: { storeUserJoke: (joke: Joke) => void; }) => {
     })))
     console.log("after", joke.chuckJoke)
   };
- 
-
-  // useEffect(() => {
-
-  // }, [handleChange])
-
-  // handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-  // setJoke({ icon: '', id: '', chuckJoke: '', isFavorited: false })
-  // }
 
   const submitUserJoke = (joke: Joke): void => {
     props.storeUserJoke(joke)
     // throw new Error("Function not implemented.");
   }
 
-  // render() {
     return (
       <>
         <form>
@@ -44,12 +34,8 @@ const Form = (props: { storeUserJoke: (joke: Joke) => void; }) => {
             <button onClick={() => submitUserJoke(joke)}>Make Ya Own</button>
           </Link>
         </form>
-        {/* <Route exact path='/user-joke/:id'>
-          <UserJokeContainer textInput={this.state.input} />
-        </Route> */}
       </>
     )
-  // }
 };
 
 export default Form;

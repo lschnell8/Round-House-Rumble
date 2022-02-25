@@ -2,12 +2,14 @@ import './FavJokeCard.scss';
 
 const FavJokecard = ({chuckJoke, icon, id, isFavorited} : {chuckJoke: string, icon: string, id: string, isFavorited: boolean}) => {
   return (
-    <section>
-      <article className='favorite'>
+    <section className='favorite'>
+      <div className='star-burst2'>
+      </div>
+      <article className='star-burst'>
         <p>{chuckJoke}</p>
-      </article>
+        </article>
       <img src={icon ? icon : 'https://assets.chucknorris.host/img/avatar/chuck-norris.png' } alt='Chuck Icon'></img>
-      <button className='star'>⭐️</button>
+      <button className='star card-star'>⭐️</button>
       {/* {isFavorited ? <button className='star' onclick={props.handleFavoriting}>⭐️</button> : <button className='star' onclick={props.handleFavoriting}>✩</button>}       */}
     </section>
   )
