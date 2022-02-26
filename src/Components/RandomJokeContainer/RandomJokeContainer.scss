@@ -61,4 +61,11 @@ img {
   position: absolute;
   right: 2.5em;
   top: 5em;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+  }
 }
+
+
