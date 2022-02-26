@@ -10,7 +10,7 @@ const RandomJokeContainer = (props: RandomJoke) => {
       </article>
       <img src='http://4.bp.blogspot.com/-YLmBl9DLa6I/VXeI_k1hJbI/AAAAAAAAASY/RDVh0Z2crNE/s320/CHUCK%2BNORRIS%2521.jpg' alt='Walker Texas Ranger'></img>
       {props.joke.isFavorited ? <button className='star' onClick={() => props.handleFavoriting(props.joke)}>⭐️</button> : <button className='star' onClick={() => props.handleFavoriting(props.joke)}>✩</button>}
-      <button className="another-joke">Hit me with another!</button>
+      <button className="another-joke" onClick={props.getNewJoke}>Hit me with another!</button>
     </section>
   )
 };

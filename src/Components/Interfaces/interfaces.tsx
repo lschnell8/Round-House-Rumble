@@ -7,5 +7,6 @@ export interface Joke {
 
 export interface RandomJoke {
   joke: Joke,
-  handleFavoriting(selectedJoke: Joke): void
+  handleFavoriting(selectedJoke: Joke): void,
+  getNewJoke(): void
 }

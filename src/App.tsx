@@ -43,6 +43,17 @@ const App = () => {
     );
   }, []);
 
+  const getNewJoke = () => {
+    getData().then((data) =>
+      setJoke({
+        icon: data.icon_url,
+        id: data.id,
+        chuckJoke: data.value,
+        isFavorited: false,
+      })
+    );
+  }
+
   const storeUserJoke = (joke: Joke): void => {
     console.log(joke);
     setUserJoke(joke);
@@ -75,6 +86,7 @@ const App = () => {
             <RandomJokeContainer
               joke={joke}
               handleFavoriting={handleFavoriting}
+              getNewJoke={getNewJoke}
             />
           </Route>
           <Route exact path="/form">
@@ -84,7 +96,12 @@ const App = () => {
             <FavJokeContainer favorites={favorites} />
           </Route>
           <Route exact path="/user-joke/:id">
-            <UserJokeContainer joke={userJoke} handleFavoriting={handleFavoriting} />
+            <UserJokeContainer
+              joke={userJoke}
+              handleFavoriting={handleFavoriting}
+              getNewJoke={getNewJoke} />
+            {//it's having a problem here becuase I neded to add a getNewJoke method to the Random Joke Container props. This requied me to add the getNewJoke method to the interface of Random Joke, and now it's upset becuase this compnent is missing a prop to match the interface. We could fix it by making the getNewJoke method optional in the interface. I just couldn't figure out hw to do it. So this is my temporary fix
+            }
           </Route>
         </Switch>
       </main>
