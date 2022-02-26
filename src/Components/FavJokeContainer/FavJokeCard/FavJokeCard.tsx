@@ -1,15 +1,18 @@
-import React from "react";
-const FavJokecard = () => {
-  // return (
-  //   <section>
-  //     <article className='favorite'>
-  //       <p>{props.value}</p>
-  //     </article>
-  //     <img src={props.icon_url} alt=''></img>
-  //     <button className='star'>⭐️</button>
-  //     <button className='star'>✩</button>
-  //   </section>
-  // )
+import './FavJokeCard.scss';
+
+const FavJokecard = ({chuckJoke, icon, id, isFavorited} : {chuckJoke: string, icon: string, id: string, isFavorited: boolean}) => {
+  return (
+    <section className='favorite'>
+      <div className='star-burst2'>
+      </div>
+      <article className='star-burst'>
+        <p>{chuckJoke}</p>
+        </article>
+      <img src={icon ? icon : 'https://assets.chucknorris.host/img/avatar/chuck-norris.png' } alt='Chuck Icon'></img>
+      <button className='star card-star'>⭐️</button>
+      {/* {isFavorited ? <button className='star' onclick={props.handleFavoriting}>⭐️</button> : <button className='star' onclick={props.handleFavoriting}>✩</button>}       */}
+    </section>
+  )
 }
 
 export default FavJokecard;
