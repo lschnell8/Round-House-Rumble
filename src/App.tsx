@@ -48,7 +48,7 @@ const App = () => {
     setUserJoke(joke);
   };
 
-  const handleFavoriting = (joke: {chuckJoke: string, icon: string, id: string, isFavorited: boolean}) => {
+  const handleFavoriting = (joke: { chuckJoke: string, icon: string, id: string, isFavorited: boolean }) => {
     console.log(joke);
     if (!joke.isFavorited) {
       setFavorites([...favorites, joke]);
