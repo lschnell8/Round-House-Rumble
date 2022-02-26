@@ -9,18 +9,20 @@ import { Joke } from '../Interfaces/interfaces';
 //     id: Date.now().toString(),
 //   }
 const Form = (props: { storeUserJoke: (joke: Joke) => void; }) => {
-  const [joke, setJoke] = useState({ icon: '', id: '', chuckJoke: '', isFavorited: false });
+  const [joke, setJoke] = useState({ icon: '', id: Date.now().toString(), chuckJoke: '', isFavorited: false });
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     // console.log("before", event.target.value)
     setJoke((joke => ({
       ...joke,
-      chuckJoke: event.target.value
+      chuckJoke: event.target.value,
     })))
     // console.log("after", joke.chuckJoke)
   };
 
   const submitUserJoke = (joke: Joke): void => {
+    // setJoke({ ...joke, id: Date.now().toString() }
+    // )
     props.storeUserJoke(joke)
     // throw new Error("Function not implemented.");
   }

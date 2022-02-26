@@ -18,4 +18,9 @@ button {
   color: #f4f5f7;
   font-size: .5rem;
   border-radius: 3px;
+
+  &:hover {
+  cursor: pointer;
+  transform: scale(1.1)
+  }
 }
