@@ -50,7 +50,7 @@ const App = () => {
 
   const handleFavoriting = (joke: { chuckJoke: string, icon: string, id: string, isFavorited: boolean }) => {
     console.log(joke);
-    if (!joke.isFavorited) {
+    if (!joke.isFavorited && !favorites.includes(joke)) {
       setFavorites([...favorites, joke]);
     }
   };
