@@ -75,7 +75,7 @@ const App = () => {
           <FavJokeContainer favorites={favorites} />
         </Route>
         <Route exact path="/user-joke/:id">
-          <UserJokeContainer joke={userJoke} />
+          <UserJokeContainer joke={userJoke} handleFavoriting={handleFavoriting} />
         </Route>
       </Switch>
     </main>
