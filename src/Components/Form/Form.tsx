@@ -12,12 +12,12 @@ const Form = (props: { storeUserJoke: (joke: Joke) => void; }) => {
   const [joke, setJoke] = useState({ icon: '', id: '', chuckJoke: '', isFavorited: false });
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    console.log("before", event.target.value)
+    // console.log("before", event.target.value)
     setJoke((joke => ({
       ...joke,
       chuckJoke: event.target.value
     })))
-    console.log("after", joke.chuckJoke)
+    // console.log("after", joke.chuckJoke)
   };
 
   const submitUserJoke = (joke: Joke): void => {
@@ -25,17 +25,17 @@ const Form = (props: { storeUserJoke: (joke: Joke) => void; }) => {
     // throw new Error("Function not implemented.");
   }
 
-    return (
-      <>
-        <form>
-          <label>Chuck One Liner:</label>
-          <textarea value={joke.chuckJoke} onChange={event => handleChange(event)}></textarea>
-          <Link to='/user-joke/:id'>
-            <button onClick={() => submitUserJoke(joke)}>Make Ya Own</button>
-          </Link>
-        </form>
-      </>
-    )
+  return (
+    <>
+      <form>
+        <label>Chuck One Liner:</label>
+        <textarea value={joke.chuckJoke} onChange={event => handleChange(event)}></textarea>
+        <Link to='/user-joke/:id'>
+          <button onClick={() => submitUserJoke(joke)}>Make Ya Own</button>
+        </Link>
+      </form>
+    </>
+  )
 };
 
 export default Form;

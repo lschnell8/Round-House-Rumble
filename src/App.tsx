@@ -49,7 +49,9 @@ const App = () => {
   };
 
   const handleFavoriting = (selectedJoke: { chuckJoke: string, icon: string, id: string, isFavorited: boolean }) => {
-    if (!joke.isFavorited) {
+    //The old if statement looked like this: if (!joke.isFavorited)
+    //But the problem is that it was only evaluating the home page joke's isFavorited property, so if we had already favorited the homepage joke then the if statement would always evaluate to false and we wouldn't be able to add the user joke to the favorites array
+    if (!favorites.includes(selectedJoke)) {
       setFavorites([...favorites, selectedJoke]);
       if (selectedJoke === joke) {
         setJoke({ ...joke, isFavorited: true })
@@ -60,29 +62,33 @@ const App = () => {
   };
 
   return (
-    <main className="app">
-      <Header />
-      <Switch>
-        {/* <Route exact path='/'>
+    <>
+      {console.log('joke.isFavorited', joke.isFavorited)}
+      {console.log('userJoke.isFavorited', userJoke.isFavorited)}
+      <main className="app">
+        <Header />
+        <Switch>
+          {/* <Route exact path='/'>
             <Redirect to='/:id'/>
           </Route> */}
-        <Route exact path="/">
-          <RandomJokeContainer
-            joke={joke}
-            handleFavoriting={handleFavoriting}
-          />
-        </Route>
-        <Route exact path="/form">
-          <Form storeUserJoke={storeUserJoke} />
-        </Route>
-        <Route exact path="/favorites">
-          <FavJokeContainer favorites={favorites} />
-        </Route>
-        <Route exact path="/user-joke/:id">
-          <UserJokeContainer joke={userJoke} handleFavoriting={handleFavoriting} />
-        </Route>
-      </Switch>
-    </main>
+          <Route exact path="/">
+            <RandomJokeContainer
+              joke={joke}
+              handleFavoriting={handleFavoriting}
+            />
+          </Route>
+          <Route exact path="/form">
+            <Form storeUserJoke={storeUserJoke} />
+          </Route>
+          <Route exact path="/favorites">
+            <FavJokeContainer favorites={favorites} />
+          </Route>
+          <Route exact path="/user-joke/:id">
+            <UserJokeContainer joke={userJoke} handleFavoriting={handleFavoriting} />
+          </Route>
+        </Switch>
+      </main>
+    </>
   );
 };
 
