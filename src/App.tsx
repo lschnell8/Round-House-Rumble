@@ -22,7 +22,7 @@ const App = () => {
     icon: "",
     id: "",
     chuckJoke: "",
-    isFavorited: false,
+    isFavorited: false
   }]);
 
   const [userJoke, setUserJoke] = useState<Joke>({
@@ -72,11 +72,15 @@ const App = () => {
   //   }
   // };
 
+
   const handleFavoriting = (selectedJoke: { chuckJoke: string, icon: string, id: string, isFavorited: boolean }) => {
     if (selectedJoke === joke) {
       if (!joke.isFavorited) {
-        setJoke({ ...joke, isFavorited: true })
-        setFavorites([...favorites, selectedJoke]);
+        setJoke({ ...joke, isFavorited: true });
+
+        // setJoke({ ...joke, isFavorited: true })
+        console.log('joke inside favoring', joke)
+        console.log('joke.isFavorited', joke.isFavorited)
       } else if (joke.isFavorited) {
         setJoke({ ...joke, isFavorited: false })
         const filteredFavorites = favorites.filter(fav => fav.id !== selectedJoke.id)
@@ -85,7 +89,7 @@ const App = () => {
     } else {
       if (!userJoke.isFavorited) {
         setUserJoke({ ...userJoke, isFavorited: true })
-        setFavorites([...favorites, selectedJoke]);
+        setFavorites([...favorites, userJoke]);
       } else if (userJoke.isFavorited) {
         setUserJoke({ ...userJoke, isFavorited: false })
         console.log('selected joke', selectedJoke)
@@ -94,14 +98,15 @@ const App = () => {
           return fav.id !== selectedJoke.id
         })
         setFavorites(filteredFavorites)
+        console.log('userJoke.isFavorited', userJoke.isFavorited)
       }
     }
   };
+  useEffect(() => { setFavorites([...favorites, joke]) }, [joke.isFavorited])
 
   return (
     <>
-      {console.log('joke.isFavorited', joke.isFavorited)}
-      {console.log('userJoke.isFavorited', userJoke.isFavorited)}
+      {console.log('joke.isFavorited RETURN', joke.isFavorited)}
       {console.log('favorites array', favorites)}
       <main className="app">
         <Header />

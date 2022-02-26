@@ -15,15 +15,17 @@ const FavJokeContainer = (props: Props) => {
   const cards = props.favorites.map((fav, index) => {
     if (index > 0) {
       return (
-        <FavJokecard
-          key={fav.id}
-          chuckJoke={fav.chuckJoke}
-          icon={fav.icon}
-          id={fav.id}
-          isFavorited={fav.isFavorited}
-        //I added the line below so I could pass the favoriting function to the cards as a prop
-        //handleFavoriting={props.handleFavoriting}
-        />
+        <>
+          {console.log('IN CARD', fav.isFavorited)}
+          <FavJokecard
+            key={fav.id}
+            chuckJoke={fav.chuckJoke}
+            icon={fav.icon}
+            id={fav.id}
+            isFavorited={fav.isFavorited}
+            handleFavoriting={props.handleFavoriting}
+          />
+        </>
       )
     }
   })

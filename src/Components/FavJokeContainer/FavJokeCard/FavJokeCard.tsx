@@ -1,9 +1,9 @@
 import './FavJokeCard.scss';
 //I added the following import
-//import { Joke } from '../Interfaces/interfaces'
+import { Joke } from '../../Interfaces/interfaces'
 
 
-const FavJokecard = ({ chuckJoke, icon, id, isFavorited }: { chuckJoke: string, icon: string, id: string, isFavorited: boolean }) => {
+const FavJokecard = ({ chuckJoke, icon, id, isFavorited, handleFavoriting }: { chuckJoke: string, icon: string, id: string, isFavorited: boolean, handleFavoriting(selectedJoke: Joke): void }) => {
   return (
     <section className='favorite'>
       <div className='star-burst2'>
@@ -12,8 +12,8 @@ const FavJokecard = ({ chuckJoke, icon, id, isFavorited }: { chuckJoke: string, 
         <p>{chuckJoke}</p>
       </article>
       <img src={icon ? icon : 'https://assets.chucknorris.host/img/avatar/chuck-norris.png'} alt='Chuck Icon'></img>
-      <button className='star card-star'>⭐️</button>
-      {/* {isFavorited ? <button className='star' onclick={props.handleFavoriting}>⭐️</button> : <button className='star' onclick={props.handleFavoriting}>✩</button>} */}
+      {/* <button className='star card-star'>⭐️</button> */}
+      {isFavorited ? <button className='star' onClick={() => handleFavoriting({ icon: icon, id: id, chuckJoke: chuckJoke, isFavorited: isFavorited })}>⭐️</button> : <button className='star' onClick={() => handleFavoriting({ icon: icon, id: id, chuckJoke: chuckJoke, isFavorited: isFavorited })}>✩</button>}
     </section>
   )
 }
