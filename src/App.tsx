@@ -1,60 +1,86 @@
-import React, { Component } from 'react';
-import './App.scss';
-import { getData } from './APICall';
-import Header from './Components/Header/Header'
-import RandomJokeContainer from './Components/RandomJokeContainer/RandomJokeContainer';
-import FavJokeContainer from './Components/FavJokeContainer/FavJokeContainer';
-import Form from './Components/Form/Form';
-import UserJokeContainer from './Components/UserJokeContainer/UserJokeContainer';
-import { Route, Switch} from 'react-router-dom';
 
-class App extends Component {
-  state = {
-    iconURL: '',
-    id: '',
-    value: '',
-    userJoke: {
-      textInput: '',
-      id: '',
+import { useState, useEffect } from "react";
+import "./App.scss";
+import { getData } from "./apiCalls";
+import { Route, Switch } from "react-router-dom";
+import Header from "./Components/Header/Header";
+import RandomJokeContainer from "./Components/RandomJokeContainer/RandomJokeContainer";
+import FavJokeContainer from "./Components/FavJokeContainer/FavJokeContainer";
+import Form from "./Components/Form/Form";
+import UserJokeContainer from "./Components/UserJokeContainer/UserJokeContainer";
+import { Joke } from "./Components/Interfaces/interfaces";
+
+const App = () => {
+
+  const [joke, setJoke] = useState({
+    icon: "",
+    id: "",
+    chuckJoke: "",
+    isFavorited: false,
+  });
+
+  const [favorites, setFavorites] = useState([{
+    icon: "",
+    id: "",
+    chuckJoke: "",
+    isFavorited: false,
+  }]);
+
+  const [userJoke, setUserJoke] = useState<Joke>({
+    icon: "",
+    id: "",
+    chuckJoke: "",
+    isFavorited: false,
+  });
+
+  useEffect(() => {
+    getData().then((data) =>
+      setJoke({
+        icon: data.icon_url,
+        id: data.id,
+        chuckJoke: data.value,
+        isFavorited: false,
+      })
+    );
+  }, []);
+
+  const storeUserJoke = (joke: Joke): void => {
+    console.log(joke);
+    setUserJoke(joke);
+  };
+
+  const handleFavoriting = (joke: {chuckJoke: string, icon: string, id: string, isFavorited: boolean}) => {
+    console.log(joke);
+    if (!joke.isFavorited) {
+      setFavorites([...favorites, joke]);
     }
-  }
+  };
 
-  componentDidMount = () => {
-    getData()
-      .then(data => this.setState({ ...this.state, iconURL: data.icon_url, id: data.id, value: data.value }))
-      .then(() => console.log('compDidMnt', this.state))
-  }
-
-  storeUserJoke = (userJoke: {}): void => {
-    console.log('state', this.state)
-    console.log('userJOke', userJoke)
-    this.setState({ ...this.state, userJoke: userJoke })
-  }
-
-  render() {
-    return (
-      <main className="app">
-        <Header />
-        <Switch>
-          {/* <Route exact path='/'>
-            <Redirect to='/:id' />
+  return (
+    <main className="app">
+      <Header />
+      <Switch>
+        {/* <Route exact path='/'>
+            <Redirect to='/:id'/>
           </Route> */}
-          <Route exact path='/'>
-            <RandomJokeContainer chuckJoke={this.state.value} icon={this.state.iconURL} id={this.state.id} />
-          </Route>
-          <Route exact path='/form'>
-            <Form storeUserJoke={this.storeUserJoke} />
-          </Route>
-          <Route exact path='/favorites'>
-            <FavJokeContainer />
-          </Route>
-          <Route exact path='/user-joke/:id'>
-            <UserJokeContainer textInput={this.state.userJoke.textInput} />
-          </Route>
-        </Switch>
-      </main>
-    )
-  }
-}
+        <Route exact path="/">
+          <RandomJokeContainer
+            joke={joke}
+            handleFavoriting={handleFavoriting}
+          />
+        </Route>
+        <Route exact path="/form">
+          <Form storeUserJoke={storeUserJoke} />
+        </Route>
+        <Route exact path="/favorites">
+          <FavJokeContainer favorites={favorites} />
+        </Route>
+        <Route exact path="/user-joke/:id">
+          <UserJokeContainer joke={userJoke} />
+        </Route>
+      </Switch>
+    </main>
+  );
+};
 
 export default App;
