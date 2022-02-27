@@ -1,6 +1,7 @@
-const { get } = require("http")
+/* eslint-disable no-undef */
 
 beforeEach(() => {
+  cy.intercept('GET', 'https://api.chucknorris.io/jokes/random', {fixture: 'chuckNorrisJoke.json'})
   cy.visit('http://localhost:3000')
 })
 
@@ -13,9 +14,8 @@ describe('Integreation tests' ,() => {
     cy.contains('Round House Rumble')
   })
 
-  // We need to come up with sad paths in order to have a fully functional tests
   it('Should contain a random joke', () => {
-    cy.contains('p')
+    cy.contains('p', 'Chuck Norris threw a grenade that killed 100 people it then exploded')
   })
 
   it('Should test to see if there is no joke', () => {
@@ -61,7 +61,7 @@ describe('Integreation tests' ,() => {
     cy.get('.make-ya-own').click()
       .url().should('include','/user-joke/:id')
 
-    cy.get('p')
+    cy.get('p').contains('This is my first joke!')
     cy.get('img')
     
   })
