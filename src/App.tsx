@@ -18,12 +18,7 @@ const App = () => {
     isFavorited: false,
   });
 
-  const [favorites, setFavorites] = useState([{
-    icon: "",
-    id: "",
-    chuckJoke: "",
-    isFavorited: false
-  }]);
+  const [favorites, setFavorites] = useState<Joke[]>([]);
 
   const [userJoke, setUserJoke] = useState<Joke>({
     icon: "",
@@ -55,7 +50,6 @@ const App = () => {
   }
 
   const storeUserJoke = (joke: Joke): void => {
-    console.log(joke);
     setUserJoke(joke);
   };
   //Everthing below this is the way we left it as a group
@@ -74,40 +68,54 @@ const App = () => {
 
 
   const handleFavoriting = (selectedJoke: { chuckJoke: string, icon: string, id: string, isFavorited: boolean }) => {
-    if (selectedJoke === joke) {
+    if (selectedJoke.id === joke.id) {
+      let tempJoke = joke;
+      console.log('HANDLE FAV', selectedJoke, 'param exp true 1');
+      console.log('HANDLE FAV', tempJoke, 'var exp true 1')
       if (!joke.isFavorited) {
-        setJoke({ ...joke, isFavorited: true });
-
-        // setJoke({ ...joke, isFavorited: true })
-        console.log('joke inside favoring', joke)
-        console.log('joke.isFavorited', joke.isFavorited)
+        tempJoke.isFavorited = true
+        setJoke(tempJoke);
+        setFavorites([...favorites, tempJoke]);
       } else if (joke.isFavorited) {
-        setJoke({ ...joke, isFavorited: false })
-        const filteredFavorites = favorites.filter(fav => fav.id !== selectedJoke.id)
-        setFavorites(filteredFavorites)
-      }
-    } else {
-      if (!userJoke.isFavorited) {
-        setUserJoke({ ...userJoke, isFavorited: true })
-        setFavorites([...favorites, userJoke]);
-      } else if (userJoke.isFavorited) {
-        setUserJoke({ ...userJoke, isFavorited: false })
-        console.log('selected joke', selectedJoke)
+        tempJoke.isFavorited = false
+        setJoke(tempJoke)
+        console.log('HANDLE FAV', selectedJoke, 'param exp false 2');
+        console.log('HANDLE FAV', tempJoke, 'var exp false 2')
         const filteredFavorites = favorites.filter(fav => {
-          console.log('fav', fav)
-          return fav.id !== selectedJoke.id
+          return fav.id !== tempJoke.id
         })
-        setFavorites(filteredFavorites)
-        console.log('userJoke.isFavorited', userJoke.isFavorited)
+        return setFavorites(filteredFavorites)
       }
+      return favorites
+    } else {
+      let tempJoke = userJoke;
+      if (!userJoke.isFavorited) {
+        tempJoke.isFavorited = true
+        setUserJoke(tempJoke)
+        setFavorites([...favorites, tempJoke]);
+        console.log('HANDLE FAV', selectedJoke, 'param exp true 3');
+        console.log('HANDLE FAV', tempJoke, 'var exp true 3')
+      } else if (userJoke.isFavorited) {
+        tempJoke.isFavorited = false
+        setUserJoke(tempJoke)
+        console.log('HANDLE FAV', selectedJoke, 'param exp false 4');
+        console.log('HANDLE FAV', tempJoke, 'var exp false 4')
+        const filteredFavorites = favorites.filter(fav => {
+          return fav.id !== tempJoke.id
+        })
+        return setFavorites(filteredFavorites)
+        // console.log('IN APP userJoke.isFavorited', tempJoke.isFavorited)
+      }
+      return favorites
     }
   };
-  useEffect(() => { setFavorites([...favorites, joke]) }, [joke.isFavorited])
+
+  // useEffect(() => { setFavorites([...favorites, joke]) }, [favorites])
 
   return (
     <>
-      {console.log('joke.isFavorited RETURN', joke.isFavorited)}
-      {console.log('favorites array', favorites)}
+      {/* {console.log('IN APP joke.isFavorited RETURN', joke.isFavorited)} */}
+      {console.log('IN APP favorites array', favorites)}
       <main className="app">
         <Header />
         <Switch>

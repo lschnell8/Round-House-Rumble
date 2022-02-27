@@ -1,13 +1,14 @@
+@use './Components/styles/_variables' as variable;
 // @import '../node_modules/@csstools/normalize.css/normalize.css';
 @import '../node_modules/@csstools/normalize.css/opinionated.css'; 
 
 html {
   overscroll-behavior: none;
-  background-color: #242424d5;
+  background-color: variable.$darkGrey;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #f4f5f7;
+  color: variable.$white;
   font-size: 2rem;
-  box-sizing: border-box;
+  // box-sizing: border-box;
   height: 100vh;
   width: 100vw;
 }

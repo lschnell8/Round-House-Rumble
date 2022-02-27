@@ -1,39 +1,37 @@
-import FavJokecard from "./FavJokeCard/FavJokeCard";
+import FavJokeCard from "./FavJokeCard/FavJokeCard";
 import './FavJokeContainer.scss';
-import { Joke } from '../Interfaces/interfaces'
+import { Props } from '../Interfaces/interfaces';
+
 
 //this is what it looked like before
 // const FavJokeContainer = (props: { favorites: { chuckJoke: string; icon: string; id: string; isFavorited: boolean; }[]; }) 
 
-interface Props {
-  favorites: { chuckJoke: string; icon: string; id: string; isFavorited: boolean; }[],
-  handleFavoriting(selectedJoke: Joke): void,
-}
+// interface Props {
+//   favorites: { chuckJoke: string; icon: string; id: string; isFavorited: boolean; }[],
+//   handleFavoriting(selectedJoke: Joke): void,
+// }
 
 const FavJokeContainer = (props: Props) => {
-  console.log('favorites', props.favorites)
-  const cards = props.favorites.map((fav, index) => {
-    if (index > 0) {
+  console.log('FAVJOKECONTAINER favorites', props.favorites)
+  const cards = props.favorites.map((fav) => {
       return (
         <>
-          {console.log('IN CARD', fav.isFavorited)}
-          <FavJokecard
+          <FavJokeCard
             key={fav.id}
             chuckJoke={fav.chuckJoke}
             icon={fav.icon}
             id={fav.id}
             isFavorited={fav.isFavorited}
             handleFavoriting={props.handleFavoriting}
-          />
+            />
         </>
       )
-    }
   })
 
   return (
     <>
-      {/* {console.log("card length", cards.length)} */}
-      {cards.length > 1 ? cards : <p>You don't have any favorites yet</p>}
+      {console.log("favJokeContainer, favoritesArray Display", cards)}
+      {cards.length ? cards : <p>You don't have any favorites yet</p>}
     </>
   )
 };

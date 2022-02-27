@@ -1,0 +1,6 @@
+@mixin button-hover ($cursor, $scale) {
+  &:hover {
+    cursor: $cursor;
+    transform: $scale;
+  }
+}
