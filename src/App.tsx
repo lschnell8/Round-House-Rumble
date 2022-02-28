@@ -68,7 +68,7 @@ const App = () => {
         const filteredFavorites = favorites.filter(fav => {
           return fav.id !== tempJoke.id
         })
-        return setFavorites(filteredFavorites)
+        setFavorites(filteredFavorites)
       }
       return favorites
     } else {
@@ -83,7 +83,7 @@ const App = () => {
         const filteredFavorites = favorites.filter(fav => {
           return fav.id !== tempJoke.id
         })
-        return setFavorites(filteredFavorites)
+        setFavorites(filteredFavorites)
       }
       return favorites
     }
