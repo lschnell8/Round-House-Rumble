@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# Round House Rumble
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+[Summary](#summary) |
+[Tech Used](#tech-used) |
+[Getting Started](#getting-started) |
+[Current Features](#current-features) |
+[Preview](#preview) |
+[Reflection](#reflection) |
+[Contributors](#contributors) |
+[Organizational Tools](#organizational-tools)
 
-In the project directory, you can run:
+## Summary
 
-### `npm start`
+This app is deigned for those who might need a laugh in their life. With Round House Rumble, your stomach will rumble with laughter after viewing a random Cuck Norris joke. Feeling your funny bone? Then go ahead and make your own joke, you can even favorite a joke to save for later if you find it humorous enough to share with your friends!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tech Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+TypeScript | SCSS | React | ReactRouter | Cypress/E2E | fetchAPI | Teamwork 
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Getting Started
 
-### `npm run build`
+1. Clone down this repo [round-house-rumble](https://github.com/lschnell8/Round-House-Rumble)
+2. Then ```cd``` into the directory
+3. Run ```npm install```
+4. Run ```npm start```
+5. Paste this: ```http://localhost:3000/``` into your browser
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Current Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*** Add Features Here
 
-### `npm run eject`
+###  Organizational Tools
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### * [Find Project Spec Here](https://frontend.turing.edu/projects/module-3/stretch.html)
+##### * [Wireframe](https://www.figma.com/file/6UUNDeOpmmCTYeONqtp3mu/Stretch-Tech)
+##### * [MindMap](https://miro.com/app/board/uXjVOL51QIQ=/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Reflection
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Richard's Reflection - Overall it was a great experience working on this project, putting to work our ability to learn something completely new and make a working product in a short amount of time. TypeScript had it's own individual challenges at first but after spending countless hours with the nitty gritty, overall I can say that I can finally see TypeScripts usefullness (and annoyance) with making sure every single thing passed down is the data type you expect it to be. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+### Contributors
+
+[Lindsay Schnell](https://github.com/lschnell8) <br>
+[Jasmyn Hicks](https://github.com/jasmyn2244) <br>
+[Richard Rosa-Serrano](https://github.com/RosaTheDev) <br>
