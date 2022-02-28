@@ -5,13 +5,13 @@ import unfavoriteStar from '../../assets/unfavoriteStar.png';
 
 const RandomJokeContainer = (props: RandomJoke) => {
   return (
-    <section className="main-container">
+    <section className='main-container'>
       <div className='comment-container'>
         <article className='comment'>
           {props.joke.chuckJoke && <p>{props.joke.chuckJoke}</p>}
           {!props.joke.chuckJoke && <p>Nothing found</p>}
         </article>
-        <button className="another-joke" onClick={props.getNewJoke}>Hit me with another!</button>
+        <button className='another-joke' onClick={props.getNewJoke}>Hit me with another!</button>
       </div>
       <div className='image-container'>
         {props.joke.isFavorited ? <img className='big-star icon' onClick={() => props.handleFavoriting(props.joke)} src={favoriteStar} alt='Favorited Star'/> : 

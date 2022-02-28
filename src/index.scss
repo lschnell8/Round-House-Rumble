@@ -1,5 +1,4 @@
 @use './Components/styles/_variables' as variable;
-// @import '../node_modules/@csstools/normalize.css/normalize.css';
 @import '../node_modules/@csstools/normalize.css/opinionated.css'; 
 
 html {
@@ -8,7 +7,6 @@ html {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: variable.$white;
   font-size: 2rem;
-  // box-sizing: border-box;
   height: 100vh;
   width: 100vw;
 }

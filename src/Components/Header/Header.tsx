@@ -11,36 +11,44 @@ const Header: React.FC = () => {
           <Redirect to='/:id' />
         </Route> */}
         <Route exact path='/'>
-          <Link to='/form'>
-            <button className='to-form'>Make Ya Own</button>
-          </Link>
-          <Link to='/favorites'>
-            <button className='to-favs'>Favorites</button>
-          </Link>
+          <div className='header-buttons'>
+            <Link to='/form'>
+              <button className='to-form'>Make Ya Own</button>
+            </Link>
+            <Link to='/favorites'>
+              <button className='to-favs'>Favorites</button>
+            </Link>
+          </div>
         </Route>
         <Route exact path='/form'>
-          <Link to='/'>
-            <button className='to-home'>Home</button>
-          </Link>
-          <Link to='/favorites'>
-            <button className='to-favs'>Favorites</button>
-          </Link>
+          <div className='header-buttons'>
+            <Link to='/'>
+              <button className='to-home'>Home</button>
+            </Link>
+            <Link to='/favorites'>
+              <button className='to-favs'>Favorites</button>
+            </Link>
+          </div>
         </Route>
         <Route path='/favorites'>
-          <Link to='/'>
-            <button className='to-home'>Home</button>
-          </Link>
-          <Link to='/form'>
-            <button className='to-form'>Make Ya Own</button>
-          </Link>
+          <div className='header-buttons'>
+            <Link to='/'>
+              <button className='to-home'>Home</button>
+            </Link>
+            <Link to='/form'>
+              <button className='to-form'>Make Ya Own</button>
+            </Link>
+          </div>
         </Route>
-        <Route path='/user-joke/:id'>
-          <Link to='/'>
-            <button className='to-home'>Home</button>
-          </Link>
-          <Link to='/favorites'>
-            <button className='to-favs'>Favorites</button>
-          </Link>
+        <Route path='/user-joke'>
+          <div className='header-buttons'>
+            <Link to='/'>
+              <button className='to-home'>Home</button>
+            </Link>
+            <Link to='/favorites'>
+              <button className='to-favs'>Favorites</button>
+            </Link>
+          </div>
         </Route>
       </Switch>
     </header>

@@ -1,24 +1,28 @@
 @use '../../styles/variables' as variable;
+@use '../../styles/mixins' as mixin;
 
 .favorite {
   display: flex;
   background: variable.$lightBlue;
   width: 20rem;
   height: 20rem;
-  margin: 10% 0 0 0;
+  border-radius: 5px;
+  margin: 5% 2% 2% 2%;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   color: variable.$black;
+  flex-wrap: wrap;
+}
+
+.fav-text {
+  position: absolute;
+  width: 10em;
 }
 
 .top {
   height: inherit;
   display: flex;
-  width: 96%;
   margin: 2%;
-  z-index: 1;
-  align-self: flex-start;
   align-items: flex-start;
   justify-content: space-between;
 }
@@ -33,71 +37,25 @@
 }
 
 .star-burst {
-  margin: 50px 0;
-  position: absolute;
-  width: 0px;
-  height: 0px;
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid variable.$white;
-  border-left: 100px solid transparent;
-  transform: rotate(0deg)
+  @include mixin.burst(0deg);
 }
+
 .star-burst:before {
-  border-bottom: 80px solid variable.$white;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  position: absolute;
-  height: 0;
-  width: 0;
-  top: -45px;
-  left: -65px;
-  display: block;
-  content: '';
-  transform: rotate(-35deg);
+  @include mixin.before-burst(-35deg);
 }
+
 .star-burst:after {
-  position: absolute;
-  top: 3px;
-  left: -105px;
-  width: 0px;
-  height: 0px;
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid variable.$white;
-  border-left: 100px solid transparent;
-  transform: rotate(-70deg);
-  content: '';
+  @include mixin.after-burst(-70deg);
 }
 
 .star-burst2 {
-  position: absolute;
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid variable.$white;
-  border-left: 100px solid transparent;
-  transform: rotate(35deg)
+  @include mixin.burst(35deg);
 }
 
 .star-burst2:before {
-  border-bottom: 80px solid variable.$white;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  position: absolute;
-  height: 0;
-  width: 0;
-  top: -45px;
-  left: -65px;
-  display: block;
-  content: '';
-  transform: rotate(-35deg);
+  @include mixin.before-burst(-35deg);
 }
+
 .star-burst2:after {
-  position: absolute;
-  top: 3px;
-  left: -105px;
-  width: 0px;
-  height: 0px;
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid variable.$white;
-  border-left: 100px solid transparent;
-  transform: rotate(-70deg);
-  content: '';
+  @include mixin.after-burst(-70deg);
 }

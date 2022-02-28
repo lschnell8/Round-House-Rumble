@@ -11,16 +11,22 @@
 }
 
 h1 {
-  margin: 0;
+  margin: 2% 2% 0 2%;
+}
+
+.header-buttons {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
 }
 
 button {
-  height: 1.5rem;
-  width: 6rem;
+  height: 2.5rem;
+  width: 8rem;
   background-color: variable.$buttonPurple;
   color: variable.$white;
-  font-size: .5rem;
-  border-radius: 3px;
+  font-size: 1rem;
+  border-radius: 5px;
   border: none;
   @include mixin.button-hover(pointer, scale(1.1));
 }
