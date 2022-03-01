@@ -1,15 +1,12 @@
 import React from 'react';
 import './Header.scss';
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   return (
     <header className='header'>
       <h1>Round House Rumble</h1>
       <Switch>
-        {/* <Route exact path='/'>
-          <Redirect to='/:id' />
-        </Route> */}
         <Route exact path='/'>
           <div className='header-buttons'>
             <Link to='/form'>
