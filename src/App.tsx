@@ -95,9 +95,6 @@ const App = () => {
     <main className='app'>
       <Header />
       <Switch>
-        {/* <Route exact path='/'>
-          <Redirect to='/:id'/>
-        </Route> */}
         <Route exact path='/'>
           <RandomJokeContainer
             joke={joke}
