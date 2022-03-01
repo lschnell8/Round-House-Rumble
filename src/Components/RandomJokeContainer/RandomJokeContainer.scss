@@ -1,64 +1,78 @@
+@use '../styles/_variables' as variable;
+@use '../styles/_mixins' as mixin;
+
 .main-container {
   display: flex;
-  background: #85c8fff5;
+  background: variable.$lightBlue;
   width: 75%;
   height: 35rem;
-  margin: 10% 0 0 0;
+  margin: 5% 0 0 0;
   justify-content: center;
+  border-radius: 3px;
+}
+
+.comment-container {
+  display: flex;
+  margin-left: 1%;
+  width: 60%;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
-
-// .comment {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   border-radius: 50%;
-//   border: 1px solid #020202;
-//   height: 14em;
-//   width: 70%;
-//   background-color: #f4f5f7;
-//   color: #020202;
-// }
 
 .comment {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
-  height: 14em;
-  color: #020202;
-  background: #f4f5f7;
+  width: 100%;
+  height: 15em;
+  margin: 10% 0 0 2%;
+  color: variable.$black;
+  background: variable.$white;
   position: relative;
   border-radius: 50%;
 }
+
 .comment:before {
   content: "";
   position: absolute;
   left: 75%;
   bottom: 30px;
   border-top: 60px solid transparent;
-  border-left: 135px solid #f4f5f7;
+  border-left: 135px solid variable.$white;
 }
-
 
 p {
   margin: 0;
   height: fit-content;
-  width: 12em;
+  width: 15em;
   text-align: center;
+  z-index: 1;
 }
 
-
-img {
-  height: 15em;
+.image-container {
+  height: 90%;
+  width: 40%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.star {
-  background: none;
-  border: none;
-  font-size: 3rem;
-  position: absolute;
-  right: 2.5em;
-  top: 5em;
+.big-star {
+  width: 5em;
+}
+
+.chuck-img {
+  height: 65%;
+  border-radius: 40px;
+}
+
+.icon {
+  @include mixin.button-hover(pointer, scale(1.1));
+}
+
+.another-joke {
+  margin-bottom: 1%;
 }

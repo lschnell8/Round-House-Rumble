@@ -1,0 +1,28 @@
+@use '../styles/_variables' as variable;
+
+.form {
+  display: flex;
+  background: variable.$lightBlue;
+  width: 75%;
+  height: 35rem;
+  margin: 5% 0 0 0;
+  justify-content: center;
+  border-radius: 3px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  height: 70%;
+  width: 80%;
+  margin: 1%;
+  font-size: inherit;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+}
+
+label {
+  align-self: flex-start;
+  margin: 0 0 0 10%;
+}

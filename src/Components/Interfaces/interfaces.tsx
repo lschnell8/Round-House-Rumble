@@ -6,6 +6,12 @@ export interface Joke {
 }
 
 export interface RandomJoke {
-  joke: Joke, 
-  handleFavoriting(joke: Joke): void
+  joke: Joke,
+  handleFavoriting(selectedJoke: Joke): void,
+  getNewJoke(): void
+}
+
+export interface Props {
+  favorites: { chuckJoke: string; icon: string; id: string; isFavorited: boolean; }[],
+  handleFavoriting(selectedJoke: Joke): void,
 }

@@ -1,21 +1,32 @@
+@use '../styles/_mixins' as mixin;
+@use '../styles/_variables' as variable;
+
 .header {
   display: flex;
   width: 100vw;
-  background-color: rgb(2, 2, 2);
+  background-color: variable.$black;
   height: 8rem;
   align-items: center;
   flex-direction: column;
 }
 
 h1 {
-  margin: 0;
+  margin: 2% 2% 0 2%;
+}
+
+.header-buttons {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
 }
 
 button {
-  height: 1.5rem;
-  width: 6rem;
-  background-color: #161FF3;
-  color: #f4f5f7;
-  font-size: .5rem;
-  border-radius: 3px;
+  height: 2.5rem;
+  width: 8rem;
+  background-color: variable.$buttonPurple;
+  color: variable.$white;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  @include mixin.button-hover(pointer, scale(1.1));
 }
