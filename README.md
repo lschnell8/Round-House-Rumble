@@ -45,7 +45,7 @@ TypeScript | SCSS | React | ReactRouter | Cypress/E2E | fetchAPI | Teamwork
 ### Reflection
 
 
-# Richard's Reflection - Overall it was a great experience working on this project, putting to work our ability to learn something completely new and make a working product in a short amount of time. TypeScript had it's own individual challenges at first but after spending countless hours with the nitty gritty, overall I can say that I can finally see TypeScripts usefullness (and annoyance) with making sure every single thing passed down is the data type you expect it to be. 
+ Richard's Reflection - Overall it was a great experience working on this project, putting to work our ability to learn something completely new and make a working product in a short amount of time. TypeScript had it's own individual challenges at first but after spending countless hours with the nitty gritty, overall I can say that I can finally see TypeScripts usefullness (and annoyance) with making sure every single thing passed down is the data type you expect it to be. 
 
 <br>
 
