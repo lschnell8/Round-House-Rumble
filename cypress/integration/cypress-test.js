@@ -32,10 +32,7 @@ describe('Integreation tests' ,() => {
   })
 
   it('Should be able to favorite a joke', () => {
-    cy.get('.main-container > :nth-child(3)')
-    .click()
-
-    cy.get('.main-container > :nth-child(4)')
+    cy.get('.big-star')
     .click()
   })
 
@@ -44,32 +41,114 @@ describe('Integreation tests' ,() => {
     .click()
     .get('label')
 
-    cy.get('textarea')
+    cy.get('.input')
     .type('This is my first joke!')
     .should('have.value', 'This is my first joke!')
   })
 
-  it('Should take yout to a new page when the joke is made', () => {
+  it('Should take you to a new page when the joke is made', () => {
     cy.get('.to-form')
       .click()
       .get('label')
 
-    cy.get('textarea')
+    cy.get('.input')
       .type('This is my first joke!')
       .should('have.value', 'This is my first joke!')
 
-    cy.get('.make-ya-own').click()
-      .url().should('include','/user-joke/:id')
-
+    cy.get('.form > a > button').click()
     cy.get('p').contains('This is my first joke!')
     cy.get('img')
     
   })
 
+  it('Should favorite a user joke', () => {
+    cy.get('.to-form')
+      .click()
+      .get('label')
 
-  // it('Should view the favorite jokes', () => {
-  //   cy.get('.favorites')
-  //   .click()
-  // })
+    cy.get('.input')
+      .type('This is my first joke!')
+      .should('have.value', 'This is my first joke!')
+
+    cy.get('.form > a > button').click()
+    cy.get('p').contains('This is my first joke!')
+    cy.get('img')
+    cy.get('.big-star').click()
+  })
+
+
+  it('Should view the favorite jokes', () => {
+    cy.get('.big-star')
+      .click()
+
+    cy.get('.to-form')
+      .click()
+      .get('label')
+
+    cy.get('.input')
+      .type('This is my first joke!')
+      .should('have.value', 'This is my first joke!')
+
+    cy.get('.form > a > button').click()
+    cy.get('p').contains('This is my first joke!')
+    cy.get('img')
+    cy.get('.big-star').click()
+
+    cy.get('.to-favs')
+    .click()
+  })
+
+  it('Should unfavorite a joke', () => {
+    cy.get('.big-star')
+      .click()
+
+    cy.get('.to-form')
+      .click()
+      .get('label')
+
+    cy.get('.input')
+      .type('This is my first joke!')
+      .should('have.value', 'This is my first joke!')
+
+    cy.get('.form > a > button').click()
+    cy.get('p').contains('This is my first joke!')
+    cy.get('img')
+    cy.get('.big-star').click()
+
+    cy.get('.to-favs')
+      .click()
+
+    cy.get(':nth-child(1) > .top > .little-star')
+      .click()
+  })
+
+  it('Should unfavorite all the jokes', () => {
+    cy.get('.big-star')
+      .click()
+
+    cy.get('.to-form')
+      .click()
+      .get('label')
+
+    cy.get('.input')
+      .type('This is my first joke!')
+      .should('have.value', 'This is my first joke!')
+
+    cy.get('.form > a > button').click()
+    cy.get('p').contains('This is my first joke!')
+    cy.get('img')
+    cy.get('.big-star').click()
+
+    cy.get('.to-favs')
+      .click()
+
+    cy.get(':nth-child(1) > .top > .little-star')
+      .click()
+
+    cy.get('.little-star')
+      .click()
+
+    cy.get('p').contains('You don\'t have any favorites yet')
+  })
 
 })
