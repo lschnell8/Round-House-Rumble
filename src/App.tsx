@@ -58,12 +58,13 @@ const App = () => {
   const handleFavoriting = (selectedJoke: { chuckJoke: string, icon: string, id: string, isFavorited: boolean }) => {
     if (selectedJoke.id === joke.id) {
       let tempJoke = joke;
-      if (!joke.isFavorited) {
+      if (!selectedJoke.isFavorited) {
         tempJoke.isFavorited = true
         setJoke(tempJoke);
         setFavorites([...favorites, tempJoke]);
-      } else if (joke.isFavorited) {
-        tempJoke.isFavorited = false
+      } else if (selectedJoke.isFavorited) {
+        tempJoke = selectedJoke;
+        tempJoke.isFavorited = false;
         setJoke(tempJoke)
         const filteredFavorites = favorites.filter(fav => {
           return fav.id !== tempJoke.id
@@ -73,15 +74,16 @@ const App = () => {
       return favorites
     } else {
       let tempJoke = userJoke;
-      if (!userJoke.isFavorited) {
+      if (!selectedJoke.isFavorited) {
         tempJoke.isFavorited = true
         setUserJoke(tempJoke)
         setFavorites([...favorites, tempJoke]);
-      } else if (userJoke.isFavorited) {
-        tempJoke.isFavorited = false
+      } else if (selectedJoke.isFavorited) {
+        tempJoke = selectedJoke
+        tempJoke.isFavorited = false;
         setUserJoke(tempJoke)
         const filteredFavorites = favorites.filter(fav => {
-          return fav.id !== tempJoke.id
+          return fav.id !== selectedJoke.id
         })
         setFavorites(filteredFavorites)
       }
