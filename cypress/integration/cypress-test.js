@@ -18,9 +18,9 @@ describe('Integreation tests' ,() => {
     cy.contains('p', 'Chuck Norris threw a grenade that killed 100 people it then exploded')
   })
 
-  it('Should test to see if there is no joke', () => {
-    cy.contains('p', 'Nothing found')
-  })
+  // it('Should test to see if there is no joke', () => {
+  //   cy.contains('p', 'Nothing found')
+  // })
 
   it('Should be able to grab the Chuck Norris image', () => {
     cy.get('img')
