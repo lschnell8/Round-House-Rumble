@@ -97,25 +97,25 @@ const App = () => {
       <Switch>
         <Route exact path='/'>
           <RandomJokeContainer
-            joke={joke}
-            handleFavoriting={handleFavoriting}
-            getNewJoke={getNewJoke}
+            joke={ joke }
+            handleFavoriting={ handleFavoriting }
+            getNewJoke={ getNewJoke }
           />
         </Route>
         <Route exact path='/form'>
-          <Form storeUserJoke={storeUserJoke} />
+          <Form storeUserJoke={ storeUserJoke } />
         </Route>
         <Route exact path='/favorites'>
           <FavJokeContainer
-            favorites={favorites}
-            handleFavoriting={handleFavoriting}
+            favorites={ favorites }
+            handleFavoriting={ handleFavoriting }
           />
         </Route>
         <Route exact path='/user-joke'>
           <UserJokeContainer
-            joke={userJoke}
-            handleFavoriting={handleFavoriting}
-            getNewJoke={getNewJoke}
+            joke={ userJoke }
+            handleFavoriting={ handleFavoriting }
+            getNewJoke={ getNewJoke }
           />
         </Route>
       </Switch>
