@@ -2,7 +2,6 @@
 @import '../node_modules/@csstools/normalize.css/opinionated.css'; 
 
 html {
-  overscroll-behavior: none;
   background-color: variable.$darkGrey;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: variable.$white;
@@ -11,3 +10,6 @@ html {
   width: 100vw;
 }
 
+body {
+  overscroll-behavior: none;
+}
